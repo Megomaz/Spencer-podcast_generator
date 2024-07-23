@@ -4,10 +4,11 @@ FROM ubuntu:latest
 RUN apt-get update && apt-get install -y \
     python3.10 \
     python3-pip \
-    git
+    git \
+    && apt-get clean
 
-# Upgrade pip to the latest version
-RUN pip3 install --upgrade pip
+# Upgrade pip and setuptools to the latest version
+RUN python3 -m pip install --upgrade pip setuptools
 
 # Install PyYAML
 RUN pip3 install PyYAML
